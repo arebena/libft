@@ -115,14 +115,10 @@ $(NAME):
 	echo -ne OBJ compiling "["$$i/$(nb)"] \""$(src)"\" ";\
 	)
 	@echo -e "\r\033[KOBJ compilation done."
-	@ar r $(NAME) $(SRCO)
+	@ar rc $(NAME) $(SRCO)
 	@ranlib $(NAME)
-	@echo lib_done_alrightFUUUUUUCK
-	@for i in {1..40}; do echo -n =; done; echo ;
-
-sub:
-	@echo "compil src"
-	@gcc -c $(FLG) $(D_SRCS)
+	@echo LIBFT created.
+	@for i in {1..38}; do echo -n =; done; echo ;
 
 all:$(NAME)
 
