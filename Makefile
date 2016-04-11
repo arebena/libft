@@ -117,7 +117,7 @@ $(NAME):
 	@echo -e "\r\033[KOBJ compilation done."
 	@ar rc $(NAME) $(SRCO)
 	@ranlib $(NAME)
-	@echo LIBFT successfully created
+	@echo LIBFT successfully created.
 	@for i in {1..38}; do echo -n =; done; echo ;
 
 all:$(NAME)
