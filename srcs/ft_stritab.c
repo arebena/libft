@@ -6,7 +6,7 @@
 /*   By: arebena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/02/27 19:56:24 by arebena           #+#    #+#             */
-/*   Updated: 2015/03/23 16:10:30 by arebena          ###   ########.fr       */
+/*   Updated: 2016/09/21 19:14:29 by arebena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,10 @@ int				*ft_stritab(char *str)
 	int		*itab;
 	char	flag;
 
+	i = 0;
 	flag = 0;
 	itab = NULL;
-	while (i = 0, flag < 2)
+	while (flag < 2)
 	{
 		i_max = 0;
 		while (str[i])

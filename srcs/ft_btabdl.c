@@ -6,7 +6,7 @@
 /*   By: arebena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/28 20:22:39 by arebena           #+#    #+#             */
-/*   Updated: 2014/11/28 21:06:14 by arebena          ###   ########.fr       */
+/*   Updated: 2016/09/21 20:32:40 by arebena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void	ft_btabdl(char ***tab)
 {
 	int i;
 
+	i = 0;
 	if (tab)
-		if (i = 0, *tab)
+		if (*tab)
 			while ((*tab)[i++])
 				ft_strdel(&((*tab)[i - 1]));
 	*tab = NULL;

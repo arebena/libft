@@ -6,13 +6,13 @@
 /*   By: arebena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/13 23:17:07 by arebena           #+#    #+#             */
-/*   Updated: 2014/11/14 18:56:42 by arebena          ###   ########.fr       */
+/*   Updated: 2016/09/21 19:02:16 by arebena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	word_len(char *src, char c)
+static int	w_len(char *src, char c)
 {
 	int len;
 
@@ -22,7 +22,7 @@ static int	word_len(char *src, char c)
 	return (len);
 }
 
-static int	words_count(char *str, char c)
+static int	w_count(char *str, char c)
 {
 	int i;
 	int count;
@@ -33,32 +33,12 @@ static int	words_count(char *str, char c)
 	{
 		if (str[i] != c)
 		{
-			i = (i + word_len(&(str[i]), c)) - 1;
+			i = (i + w_len(&(str[i]), c)) - 1;
 			count++;
 		}
 		i++;
 	}
 	return (count);
-}
-
-static void	*tab_malloc(char **tab, char *str, char c)
-{
-	int i;
-	int i2;
-
-	i = -1;
-	i2 = 0;
-	if (!(tab = (char **)malloc(8 * (words_count(str, c) + 1))))
-		return (NULL);
-	while (str[++i] != 0)
-		if (str[i] != c)
-		{
-			if (!(tab[i2] = (char *)malloc(word_len(&(str[i]), c) + 1)))
-				return (NULL);
-			i2++;
-			i = (i + word_len(&(str[i]), c)) - 1;
-		}
-	return (tab);
 }
 
 char		**ft_strsplit(char const *s, char c)
@@ -69,15 +49,16 @@ char		**ft_strsplit(char const *s, char c)
 
 	i = -1;
 	tab = NULL;
-	if (i2 = 0, s == NULL)
+	i2 = 0;
+	if (s == NULL)
 		return (NULL);
-	if (!(tab = tab_malloc(tab, (char *)s, c)))
+	if (!(tab = (char **)malloc(sizeof(char *) * (w_count((char *)s, c) + 1))))
 		return (NULL);
 	while (s[++i] != 0)
 		if (s[i] != c)
 		{
-			tab[i2] = ft_strndup((char *)&(s[i]), word_len((char *)&(s[i]), c));
-			i = (i + word_len((char *)&(s[i]), c)) - 1;
+			tab[i2] = ft_strndup((char *)&(s[i]), w_len((char *)&(s[i]), c));
+			i = (i + w_len((char *)&(s[i]), c)) - 1;
 			i2++;
 		}
 	tab[i2] = NULL;

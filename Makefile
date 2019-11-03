@@ -12,7 +12,7 @@
 
 NAME = libft.a
 
-SRCS := ft_lstnew.c\
+SRCS = ft_lstnew.c\
 	   ft_lstxnew.c\
 	   ft_lstduptab.c\
 	   ft_lstdelone.c\
@@ -70,7 +70,12 @@ SRCS := ft_lstnew.c\
 	   ft_striteri.c\
 	   ft_strmap.c\
 	   ft_strmapi.c\
+	   ft_strsplit.c\
+	   ft_strrev.c\
 	   ft_atoi.c\
+	   ft_itoa.c\
+	   ft_itob.c\
+	   ft_pow.c\
 	   ft_putchar.c\
 	   ft_putchar_fd.c\
 	   ft_putstr.c\
@@ -93,40 +98,38 @@ SRCS := ft_lstnew.c\
 	   ft_quicksort_t.c\
 	   ft_toupper.c\
 	   ft_tolower.c\
-	   ft_itoa.c\
-	   ft_strsplit.c\
-	   ft_strrev.c\
 
 D_SRCS = $(addprefix srcs/, $(SRCS))
 SRCO = $(addprefix obj/, $(SRCS:.c=.o))
-nb = $(words $(SRCS))
+
 FLG = -Wall -Wextra -Werror
 
+DONE = \033[1;33;32mdone\033[0m
+CREAT = \033[1;33;34m(creat)\t\033[0m
+DEL = \033[1;33;31m(del)\t\033[0m
+ARROW = \033[1;33;30m>>>>>>>>>>>>>>\033[0m
+LIB = \033[1;33;33m LIB \033[0m
+.o = \033[1;33;31m.o \033[0m
+.a = \033[1;33;31m.a \033[0m
+
 $(NAME):
-	@echo -n " "; for i in {1..17}; do echo -n =; done; echo ;
-	@echo "//  LIBFT_MAKE  //"
-	@for i in {1..40}; do echo -n =; done; echo ;
-	@i=1;
+	@gcc -c $(FLG) $(D_SRCS)
 	@mkdir -p obj
-	@$(foreach src,$(SRCS),\
-	gcc -c $(FLG) $(addprefix srcs/, $(src)) -o $(addprefix obj/, $(src:.c=.o));\
-	echo -ne "\r\033[K";\
-	let "i+=1";\
-	echo -ne OBJ compiling "["$$i/$(nb)"] \""$(src)"\" ";\
-	)
-	@echo -e "\r\033[KOBJ compilation done."
+	@mv $(notdir $(SRCO)) obj
+	@echo "$(CREAT)$(ARROW)$(LIB)$(.o)"
 	@ar rc $(NAME) $(SRCO)
 	@ranlib $(NAME)
-	@echo LIBFT successfully created.
-	@for i in {1..38}; do echo -n =; done; echo ;
+	@echo "$(CREAT)$(ARROW)$(LIB)$(.a)"
 
 all:$(NAME)
 
 clean:
 	@rm -rf obj
+	@echo "$(DEL)$(ARROW)$(LIB)$(.o)"
 
 fclean:clean
 	@rm -rf $(NAME)
+	@echo "$(DEL)$(ARROW)$(LIB)$(.a)"
 
 re: fclean all
 

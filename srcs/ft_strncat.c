@@ -6,7 +6,7 @@
 /*   By: arebena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 17:46:25 by arebena           #+#    #+#             */
-/*   Updated: 2014/11/26 16:48:44 by arebena          ###   ########.fr       */
+/*   Updated: 2016/09/21 19:14:00 by arebena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 	int e;
 
 	i = 0;
-	while (e = 0, s1[i] != 0)
+	e = 0;
+	while (s1[i] != 0)
 		i++;
 	while (e < (int)n)
 		s1[i++] = s2[e++];

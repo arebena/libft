@@ -6,11 +6,19 @@
 /*   By: arebena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/07 18:41:20 by arebena           #+#    #+#             */
-/*   Updated: 2015/02/06 20:20:20 by arebena          ###   ########.fr       */
+/*   Updated: 2016/09/21 19:12:39 by arebena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+int		get_count(char *dst, const char *src, size_t size)
+{
+	if ((int)ft_strlen(dst) < (int)size)
+		return (ft_strlen(dst) + ft_strlen((char *)src));
+	else
+		return ((int)size + ft_strlen((char *)src));
+}
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -20,11 +28,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	int count;
 
 	e = 0;
-	if (i = 0, (int)ft_strlen(dst) < (int)size)
-		count = ft_strlen(dst) + ft_strlen((char *)src);
-	else if (flag = -1, 1)
-		count = (int)size + ft_strlen((char *)src);
+	i = 0;
 	flag = 0;
+	count = get_count(dst, src, size);
 	while ((i - 1) != (int)size - 1 && flag != -1)
 	{
 		if (flag == 1 && src[e])

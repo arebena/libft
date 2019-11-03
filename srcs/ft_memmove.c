@@ -6,7 +6,7 @@
 /*   By: arebena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/06 16:06:55 by arebena           #+#    #+#             */
-/*   Updated: 2015/02/06 19:50:17 by arebena          ###   ########.fr       */
+/*   Updated: 2016/09/21 19:17:01 by arebena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	char	*srcb;
 	char	*dstb;
 
-	if (i = -1, (char)len == 0)
+	i = -1;
+	if ((char)len == 0)
 		return (dst);
 	dstb = ft_strdup((char *)dst);
 	srcb = (char *)src;

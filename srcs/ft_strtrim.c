@@ -6,7 +6,7 @@
 /*   By: arebena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/14 19:13:44 by arebena           #+#    #+#             */
-/*   Updated: 2014/11/14 20:36:19 by arebena          ###   ########.fr       */
+/*   Updated: 2016/09/21 19:03:11 by arebena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ char	*ft_strtrim(char const *s)
 	int		beg;
 	int		end;
 
-	if (beg = 0, !(s))
+	beg = 0;
+	if (!s)
 		return (NULL);
-	if (end = ft_strlen(s) - 1, s[0] == 0)
+	end = ft_strlen(s) - 1;
+	if (s[0] == 0)
 		return (str = ft_strdup(""));
 	while ((s[beg] == ' ' || s[beg] == '\n' || s[beg] == '\t') && s[beg])
 		beg++;

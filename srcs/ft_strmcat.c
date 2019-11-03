@@ -6,7 +6,7 @@
 /*   By: arebena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/28 20:29:50 by arebena           #+#    #+#             */
-/*   Updated: 2014/12/29 17:36:56 by arebena          ###   ########.fr       */
+/*   Updated: 2016/09/21 19:13:17 by arebena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ char	*ft_strmcat(char *dst, const char *src)
 {
 	char *new_str;
 
+	new_str = NULL;
 	if (dst == NULL && src == NULL)
 		return (NULL);
-	else if (new_str = NULL, dst == NULL)
+	else if (dst == NULL)
 		return (ft_strdup(src));
 	else if (src == NULL)
 		return (dst);

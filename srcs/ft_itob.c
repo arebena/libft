@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_tabdup.c                                        :+:      :+:    :+:   */
+/*   ft_itob.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arebena <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/12/02 15:44:01 by arebena           #+#    #+#             */
-/*   Updated: 2016/09/21 19:03:42 by arebena          ###   ########.fr       */
+/*   Created: 2014/11/12 22:25:13 by arebena           #+#    #+#             */
+/*   Updated: 2016/09/21 20:29:01 by arebena          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_tabdup(char **tab)
+char	*ft_itob(unsigned char ch)
 {
 	int		i;
-	char	**new_tab;
+	int		e;
+	int		tmp;
+	char	*bin;
 
-	i = 0;
-	if (tab && *tab)
-		while (tab[i])
-			i++;
-	else
-		return (NULL);
-	new_tab = (char **)malloc(sizeof(char *) * (i + 1));
-	i = -1;
-	while (tab[++i])
-		new_tab[i] = ft_strdup(tab[i]);
-	new_tab[i] = NULL;
-	return (new_tab);
+	i = 8;
+	if (ch == 0)
+		return (ft_strdup("0"));
+	bin = (char *)malloc(sizeof(char) * i + 1);
+	bin[i--] = 0;
+	e = 0;
+	while (tmp = ch, i-- != -1)
+		if ((tmp = ft_pow(2, i + 1)) <= ch)
+		{
+			bin[e++] = '1';
+			ch -= tmp;
+		}
+		else
+			bin[e++] = '0';
+	return (bin);
 }

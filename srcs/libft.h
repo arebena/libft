@@ -87,6 +87,8 @@ char				*ft_strmap(char const *s, char (*f)(char));
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
+char				*ft_itob(unsigned char ch);
+int					ft_pow(int nb, int pw);
 void				ft_putchar(char c);
 void				ft_putchar_fd(char c, int fd);
 void				ft_putendl(char const *s);
